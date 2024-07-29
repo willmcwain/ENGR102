@@ -111,15 +111,66 @@ def z_score(x, mu, sigma):
     denominator = sigma
     return numerator/denominator
 
-# TESTING
-print("\t\tFor Population 1:")
-for number in population1:
+#Testing Z score for the minimum value in each data set
+min_population1 = min(population1)
+min_population2 = min(population2)
+min_population3 = min(population3)
+
+print("\n\t\tFor the minimum value of Population 1:")
+print("The z-score of",min_population1,"is",(z_score(min_population1,mean(population1),stdev(population1,mean(population1)))))
+
+print("\n\t\tFor the minimum value of Population 2:")
+print("The z-score of", min_population2, "is", (z_score(min_population2, mean(population2), stdev(population2, mean(population2)))))
+
+print("\n\t\tFor the minimum value of Population 3:")
+print("The z-score of", min_population3, "is", (z_score(min_population3, mean(population3), stdev(population3, mean(population3)))))
+
+
+#Testing Z score when population is less than mean
+
+filter_values_less_population1 = [x for x in population1 if x < mean(population1)]
+filter_values_less_population2 = [x for x in population2 if x < mean(population2)]
+filter_values_less_population3 = [x for x in population3 if x < mean(population3)]
+
+print("\n\t\tFor Population 1 value less than the mean:")
+for number in filter_values_less_population1:
     print("The z-score of",number,"is",(z_score(number,mean(population1),stdev(population1,mean(population1)))))
 
-print("\n\t\tFor Population 2:")
-for number in population2:
+print("\n\t\tFor Population 2 value less than the mean:")
+for number in filter_values_less_population2:
     print("The z-score of",number,"is",(z_score(number,mean(population2),stdev(population2,mean(population2)))))
 
-print("\n\t\tFor Population 3:")
-for number in population3:
+print("\n\t\tFor Population 3 value less than the mean:")
+for number in filter_values_less_population3:
     print("The z-score of",number,"is",(z_score(number,mean(population3),stdev(population3,mean(population3)))))
+
+#Testing Z score when population item is greater than mean
+filter_values_greater_population1 = [x for x in population1 if x > mean(population1)]
+filter_values_greater_population2 = [x for x in population2 if x > mean(population2)]
+filter_values_greater_population3 = [x for x in population3 if x > mean(population3)]
+
+print("\n\t\tFor Population 1 value greater than the mean:")
+for number in filter_values_greater_population1:
+    print("The z-score of",number,"is",(z_score(number,mean(population1),stdev(population1,mean(population1)))))
+
+print("\n\t\tFor Population 2 value greater than the mean:")
+for number in filter_values_greater_population2:
+    print("The z-score of",number,"is",(z_score(number,mean(population2),stdev(population2,mean(population2)))))
+
+print("\n\t\tFor Population 3 value greater than the mean:")
+for number in filter_values_greater_population3:
+    print("The z-score of",number,"is",(z_score(number,mean(population3),stdev(population3,mean(population3)))))
+
+#Testing Z score for the maximum value in each data set
+max_population1 = max(population1)
+max_population2 = max(population2)
+max_population3 = max(population3)
+
+print("\n\t\tFor the maximum value of Population 1:")
+print("The z-score of",max_population1,"is",(z_score(max_population1,mean(population1),stdev(population1,mean(population1)))))
+
+print("\n\t\tFor the maximum value of Population 2:")
+print("The z-score of", max_population2, "is", (z_score(max_population2, mean(population2), stdev(population2, mean(population2)))))
+
+print("\n\t\tFor the maximum value of Population 3:")
+print("The z-score of", max_population3, "is", (z_score(max_population3, mean(population3), stdev(population3, mean(population3)))))
